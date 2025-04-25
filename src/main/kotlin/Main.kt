@@ -1,16 +1,72 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    val toFahrenheit = toFahrenheit(30.0)
+    println(toFahrenheit)
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    val diameter = calculateDiameter(10.0, 20.0)
+    println(diameter)
+
+    val factorial = calculateFactorial(5)
+    println(factorial)
+
+    val a = calculateA("Hello Yusuf Can Mercan!")
+    println(a)
+
+    val sumAngles = calculateSumAngles(5)
+    println(sumAngles)
+
+    val salary = calculateSalary(30)
+    println(salary)
+
+    val price = calculatePrice(100)
+    println(price)
+}
+
+fun toFahrenheit(celsius: Double): Double {
+    return (celsius * 1.8) + 32
+}
+
+fun calculateDiameter(shortEdge: Double, longEdge: Double): Double {
+    return 2 * (shortEdge + longEdge)
+}
+
+fun calculateFactorial(number: Int): Int {
+    var result = 1
+    for (i in 1..number) {
+        result *= i
+    }
+    return result
+}
+
+fun calculateA(word: String): Int {
+    var result = 0
+    for (char in word) {
+        if (char == 'a') {
+            result++
+        }
+    }
+    return result
+}
+
+fun calculateSumAngles(edgeCount: Int): Double {
+    return (edgeCount - 2) * 180.0
+}
+
+fun calculateSalary(day: Int): Double {
+    val hour = day * 8
+    return if (hour > 160) {
+        val overtime = hour - 160
+        hour * 10.0 + overtime * 20.0
+    } else {
+        hour * 10.0
+    }
+}
+
+fun calculatePrice(quota: Int): Int {
+    return if (quota > 50) {
+        100 + (quota - 50) * 4
+    } else {
+        100
     }
 }
